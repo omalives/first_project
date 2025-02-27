@@ -1,0 +1,32 @@
+pipeline{
+agent any
+
+stages {
+    stage ('Git Checkout') {
+        steps{
+            checkout changelog: false, poll: false, scm: scmGit(branches: [[name: '*/feature2']], extensions: [], userRemoteConfigs: [[credentialsId: 'git_cred_omalives', url: 'https://github.com/omalives/first_project.git']])
+        }
+    }
+    stage ('Validate') {
+        steps{
+            withMaven(maven: 'maven_3.9') {
+                sh 'mvn validate'
+            }
+        }
+    }
+    stage ('Compile') {
+            steps{
+                withMaven(maven: 'maven_3.9') {
+                    sh 'mvn validate'
+                }
+            }
+        }
+    stage ('Run Test') {
+                steps{
+                    withMaven(maven: 'maven_3.9') {
+                        sh 'mvn validate'
+                    }
+                }
+            }
+    }
+}

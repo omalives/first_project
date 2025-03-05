@@ -24,7 +24,7 @@ stages {
     stage ('Run Test') {
                 steps{
                     withMaven(maven: 'maven_3.9') {
-                        echo 'mvn run test'
+                        echo 'mvn run test2'
                     }
                 }
             }

@@ -30,7 +30,7 @@ stages {
             }
     stage('SonarQube Analysis') {
              environment{
-                sonarScan = tool 'ibt-sonarqube_4.8'
+                sonarScan = tool 'oma-sonarqube'
              }
              steps{
               withSonarQubeEnv(installationName: 'IBT sonarqube', credentialsId: 'student-sonar-token') {

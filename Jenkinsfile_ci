@@ -24,9 +24,19 @@ stages {
     stage ('Run Test') {
                 steps{
                     withMaven(maven: 'maven_3.9') {
-                        echo 'mvn run test2'
+                        echo 'mvn run test'
                     }
                 }
             }
+    stage('SonarQube Analysis') {
+             environment{
+                sonarScan = tool 'ibt-sonarqube_4.8'
+             }
+             steps{
+              withSonarQubeEnv(installationName: 'IBT sonarqube', credentialsId: 'student-sonar-token') {
+                echo "${env.sonarScan}/bin/sonar-scanner"
+              }
+           }
+         }
     }
 }

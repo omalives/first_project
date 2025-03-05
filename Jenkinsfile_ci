@@ -33,7 +33,7 @@ stages {
                 sonarScan = tool 'oma-sonarqube'
              }
              steps{
-              withSonarQubeEnv(installationName: 'IBT sonarqube', credentialsId: 'student-sonar-token') {
+              withSonarQubeEnv(installationName: 'IBT Sonarqube', credentialsId: 'student-sonar-token') {
                 echo "${env.sonarScan}/bin/sonar-scanner"
               }
            }

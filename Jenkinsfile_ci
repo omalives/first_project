@@ -45,11 +45,11 @@ stages {
              }
      stage('Vulnerability Scan'){
              steps{
-                 dependencyCheck additionalArguments: 'student-sonar-token'
+                 dependencyCheck additionalArguments: '''
                      -o "./"
                      -s "./"
                      -f "ALL"
-                     --prettyPrint ''', odcInstallation: 'DP Check'
+                     --prettyPrint ''', odcInstallation: 'OWASP-DC'
                  dependencyCheckPublisher pattern: 'dependency-check-report.xml'
              }
           }

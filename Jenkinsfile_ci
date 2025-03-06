@@ -49,7 +49,7 @@ stages {
                      -o "./"
                      -s "./"
                      -f "ALL"
-                     --prettyPrint ''', odcInstallation: 'dependency-check'
+                     --prettyPrint ''', odcInstallation: 'DP Check'
                  dependencyCheckPublisher pattern: 'dependency-check-report.xml'
              }
           }

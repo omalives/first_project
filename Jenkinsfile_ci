@@ -45,7 +45,7 @@ stages {
              }
      stage('Vulnerability Scan'){
              steps{
-                 dependencyCheck additionalArguments: '', nvdCredentialsId: 'student-sonar-token'
+                 dependencyCheck additionalArguments: nvdCredentialsId: 'student-sonar-token'
                      -o "./"
                      -s "./"
                      -f "ALL"
